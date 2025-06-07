@@ -54,12 +54,10 @@ function FishingRod:onMouseWheel(val)
     print(val)
 end
 --]]
-
 function FishingRod:cast()
     self.spawnBobberDelayTimer = 85
     self.spawnBobberX, self.spawnBobberY = self:getSpawnBobberCoords()
 end
-
 
 function FishingRod:getSpawnBobberCoords()
     local dx = (ZombRand(3) - 1.5) / (self.skillLevel + 1)

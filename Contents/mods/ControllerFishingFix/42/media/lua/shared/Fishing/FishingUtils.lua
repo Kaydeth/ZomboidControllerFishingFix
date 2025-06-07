@@ -117,9 +117,6 @@ function Fishing.Utils.isPlayerAimOnWater(player, autoAim)
 end
 
 function Fishing.Utils.isLocationOnWater(x,y)
-    -- North is towards the upper right of the screen
-    -- Y goes down as you move north
-    -- X goes down as you move west
     if Fishing.isNoFishZone(x,y) then
         return false
     end
