@@ -1,0 +1,9 @@
+name=ControllerFishingFix
+poster=poster.png
+icon=icon.png
+id=ControlerFishingFix
+description=Fixes Build 42 bug that makes it impossible to cast the fishing rod with a controller.
+author=Kaydeth
+versionMin=42.8.1
+modversion=1.0.0
+url=
