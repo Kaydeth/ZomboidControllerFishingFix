@@ -10,7 +10,6 @@ function FishingRod:new(player)
     self.__index = self
 
     o.player = player
-    o.joypad = player:getJoypadBind()
     o.skillLevel = player:getPerkLevel(Perks.Fishing)
     o.strengthSkill = player:getPerkLevel(Perks.Strength)
     o.isFirstFishing = player:getModData().Fishing_IsFirstFishing == nil
@@ -54,16 +53,10 @@ function FishingRod:onMouseWheel(val)
     print(val)
 end
 --]]
-function FishingRod:setCastLocation(x,y)
-    self.castX = x
-    self.castY = y
-end
-
 function FishingRod:cast()
     self.spawnBobberDelayTimer = 85
     self.spawnBobberX, self.spawnBobberY = self:getSpawnBobberCoords()
 end
-
 
 function FishingRod:getSpawnBobberCoords()
     local dx = (ZombRand(3) - 1.5) / (self.skillLevel + 1)
@@ -74,7 +67,6 @@ function FishingRod:getSpawnBobberCoords()
         return x+dx, y+dy
     end
     local x, y = Fishing.Utils.getAimCoords(self.player, Fishing.actionProperties.defaultLineLen)
-    -- return self.castX+dx, self.castY+dy
     return x+dx, y+dy
 end
 
@@ -196,10 +188,7 @@ function FishingRod:getTension()
 end
 
 function FishingRod:isReel()
-    if self.joypad ~= -1 then
-         return isJoypadRTPressed(self.joypad) and not isJoypadLTPressed(self.joypad)
-    end
-
+    -- TODO: add controller support
     return (isMouseButtonDown(0) and not isMouseButtonDown(1)) --or (self.wheelTimer > 0 and self.wheelVal < 0)
 end
 
@@ -210,10 +199,7 @@ function FishingRod:reel()
 end
 
 function FishingRod:isReleaseLine()
-    if self.joypad ~= -1 then
-         return isJoypadLTPressed(self.joypad)
-    end
-
+    -- TODO: add controller support
     return isMouseButtonDown(1) --or (self.wheelTimer > 0 and self.wheelVal > 0)
 end
 

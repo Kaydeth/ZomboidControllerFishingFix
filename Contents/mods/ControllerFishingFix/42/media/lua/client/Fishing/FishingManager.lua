@@ -30,7 +30,6 @@ end
 function FishingManager:initStates()
     self.states["None"] = Fishing.States.None:new(self)
     self.states["Idle"] = Fishing.States.Idle:new(self)
-    self.states["PreCast"] = Fishing.States.PreCast:new(self)
     self.states["Cast"] = Fishing.States.Cast:new(self)
     self.states["Wait"] = Fishing.States.Wait:new(self)
     self.states["ReelIn"] = Fishing.States.ReelIn:new(self)
@@ -65,7 +64,6 @@ end
 function FishingManager:removeEventHooks()
     Events.OnTick.Remove(self.onTickFunc)
     Events.OnSave.Remove(self.onSave)
-    Events.OnJoypadActivate.Remove(self.joypadActivate)
 end
 
 function FishingManager:update()
