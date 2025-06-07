@@ -1,0 +1,2 @@
+This directory is required by Project Zomboid to load the mod.
+Need this place holder file to make sure git doesn't remove the empty directory
