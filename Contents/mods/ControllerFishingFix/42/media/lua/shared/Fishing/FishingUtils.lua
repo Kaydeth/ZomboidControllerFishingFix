@@ -50,34 +50,7 @@ function Fishing.Utils.getAimCoords(player)
         return ISCoordConversion.ToWorld(getMouseXScaled(), getMouseYScaled() + 100, player:getZ())
     else
         local aim = Fishing.Utils.ControllerAim[joypad]
-        if aim ~= nil then
-            print ("Use cached aim coords: ", aim.gridSquare:getX(), ", ", aim.gridSquare:getY())
-            return aim.gridSquare:getX(), aim.gridSquare:getY()
-        else
-            local aimVector = player:getAimVector(Fishing.Utils.tempVec2)
-            local vectorLength = aimVector:getLength()
-            local vectorLength2 = aimVector:getLengthSquared()
-            local cx,cy = player:getX(), player:getY()
-            print("Vector is: ", aimVector:getX(), ", ", aimVector:getY())
-            print("Player is: ", cx, ", ", cy)
-            local dir = player:getDir()
-            local aim_factor = 15.9
-            local aim_factor_diag = 11.3
-            local x
-            local y
-            
-            if     dir == IsoDirections.N  then   x,y = cx,   cy-aim_factor
-            elseif dir == IsoDirections.NE then   x,y = cx+aim_factor_diag, cy-aim_factor_diag
-            elseif dir == IsoDirections.E  then   x,y = cx+aim_factor, cy
-            elseif dir == IsoDirections.SE then   x,y = cx+aim_factor_diag, cy+aim_factor_diag
-            elseif dir == IsoDirections.S  then   x,y = cx,   cy+aim_factor
-            elseif dir == IsoDirections.SW then   x,y = cx-aim_factor_diag, cy+aim_factor_diag
-            elseif dir == IsoDirections.W  then   x,y = cx-aim_factor, cy
-            elseif dir == IsoDirections.NW then   x,y = cx-aim_factor_diag, cy-aim_factor_diag
-            end
-
-            return x,y
-        end
+        return aim.gridSquare:getX(), aim.gridSquare:getY()
     end
 end
 

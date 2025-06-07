@@ -65,7 +65,6 @@ end
 function FishingManager:removeEventHooks()
     Events.OnTick.Remove(self.onTickFunc)
     Events.OnSave.Remove(self.onSave)
-    Events.OnJoypadActivate.Remove(self.joypadActivate)
 end
 
 function FishingManager:update()

@@ -94,18 +94,12 @@ end
 
 function Fishing.States.PreCast:update()
     if(self.manager.joypad == -1 or self.cursor == nil) then
-        print "LSDEBUG: precast update"
-        -- print getCell():getHeight()
-        -- print getCell():lastPlayerAngle
         if Fishing.Utils.isValidCastLocation(self.manager.player)  then
-                print "LSDEBUG: cast"
                 self.manager:changeState("Cast")
         else
             if(self.manager.joypad == -1) then
-                print "LSDEBUG: got to Idle"
                 self.manager:changeState("Idle")
             else
-                print "LSDEBUG: got to None"
                 Fishing.Utils.clearAimingGridSquare(self.manager.joypad)
                 self.manager:changeState("None")
             end
@@ -119,7 +113,6 @@ end
 
 function Fishing.States.PreCast:onSquareSelected(square)
 	self.cursor = nil;
-    -- self.manager.fishingRod:setCastLocation(square:getX(), square:getY())
     Fishing.Utils.setAimingGridSquare(self.manager.joypad, square)
 end
 

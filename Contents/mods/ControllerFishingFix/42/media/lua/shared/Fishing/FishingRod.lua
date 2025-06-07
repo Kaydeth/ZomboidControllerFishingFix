@@ -54,10 +54,6 @@ function FishingRod:onMouseWheel(val)
     print(val)
 end
 --]]
-function FishingRod:setCastLocation(x,y)
-    self.castX = x
-    self.castY = y
-end
 
 function FishingRod:cast()
     self.spawnBobberDelayTimer = 85
@@ -74,7 +70,6 @@ function FishingRod:getSpawnBobberCoords()
         return x+dx, y+dy
     end
     local x, y = Fishing.Utils.getAimCoords(self.player, Fishing.actionProperties.defaultLineLen)
-    -- return self.castX+dx, self.castY+dy
     return x+dx, y+dy
 end
 
