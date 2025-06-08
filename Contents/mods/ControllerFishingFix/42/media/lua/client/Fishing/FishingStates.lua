@@ -61,7 +61,6 @@ function Fishing.States.Idle:update()
             self.manager:changeState("PreCast")
         end
     else
-        print "aim not on water"
         self.manager:changeState("None")
     end
 end

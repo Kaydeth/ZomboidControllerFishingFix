@@ -20,7 +20,6 @@ function Fishing.Utils.setAimingGridSquare(joypad, gridSquare)
 end
 
 function Fishing.Utils.clearAimingGridSquare(joypad)
-    print "Clear cached aim"
     Fishing.Utils.ControllerAim[joypad] = nil
 end
 

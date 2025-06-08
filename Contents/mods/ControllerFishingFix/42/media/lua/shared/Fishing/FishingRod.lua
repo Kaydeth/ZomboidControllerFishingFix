@@ -226,7 +226,14 @@ function FishingRod:getRodDxDy()
 
     local bobberX = self.bobber:getX()
     local bobberY = self.bobber:getY()
-    local aimX, aimY = Fishing.Utils.getAimCoords(self.player, Fishing.actionProperties.defaultLineLen)
+    local aimX = bobberX + 0.2
+    local aimY = bobberY + 0.2
+    if self.joypad == -1 then
+        -- I don't understand this math. Why should the mouse cursor position effect the length of the fishing rod?
+        -- For controller I'm just going to default to mimic if you kept the cursor over the bobber the whole
+        -- time you were reeling it in
+        aimX, aimY = Fishing.Utils.getAimCoords(self.player, Fishing.actionProperties.defaultLineLen)
+    end
     local charX = self.player:getX()
     local charY = self.player:getY()
     ---------
@@ -257,6 +264,7 @@ function FishingRod:getRodDxDy()
     local coeff = 1
     if vecToAimLen < 3 then
         coeff = vecToAimLen / 3.0
+        -- print("coeff is ", coeff)
     end
 
     return -dx*coeff, -dy*coeff
@@ -269,6 +277,7 @@ function FishingRod:getRodEndXY()
     local dx, dy = self:getRodDxDy()
     local x = self.player:getX() + math.sin(math.rad(180 - (deg + 30*dx)))*(1-dy*0.5) * 0.5
     local y = self.player:getY() + math.cos(math.rad(180 - (deg + 30*dx)))*(1-dy*0.5) * 0.5
+    -- print("Rod end: ", x, ":", y)
     return x, y
 end
 
