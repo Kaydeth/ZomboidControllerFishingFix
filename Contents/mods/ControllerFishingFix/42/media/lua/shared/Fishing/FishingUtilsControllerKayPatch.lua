@@ -38,7 +38,7 @@ local orig_getAimCoords = Fishing.Utils.getAimCoords
 function Fishing.Utils.getAimCoords(player)
     local joypad = player:getJoypadBind()
     if joypad == -1 then
-        return orig_getAimCoords(self,player)
+        return orig_getAimCoords(player)
     else
         local aim = Fishing.Utils.ControllerAim[joypad]
         return aim.gridSquare:getX(), aim.gridSquare:getY()
@@ -48,7 +48,7 @@ end
 local orig_isStopFishingButtonPressed = Fishing.Utils.isStopFishingButtonPressed
 function Fishing.Utils.isStopFishingButtonPressed(joypad)
     if joypad == -1 then
-        return orig_isStopFishingButtonPressed(self, joypad)
+        return orig_isStopFishingButtonPressed(joypad)
     else
         if getJoypadMovementAxisX(joypad) ~= 0 or getJoypadMovementAxisY(joypad) ~= 0 or isJoypadPressed(joypad, getJoypadBButton(joypad)) then
             return true
@@ -110,8 +110,10 @@ function Fishing.Utils.isLocationOnWater(x,y)
     return false
 end
 
-function Fishing.Utils.isValidCastLocation(player)
-    local x, y = Fishing.Utils.getAimCoords(player)
+function Fishing.Utils.isValidCastLocation(player, x, y)
+    if(x == nil or y == nil) then
+        x, y = Fishing.Utils.getAimCoords(player)
+    end
     return Fishing.Utils.isLocationOnWater(x,y) and Fishing.Utils.isAccessibleAimDist(player,x,y)
 end
 
@@ -125,7 +127,7 @@ end
 local orig_isCastButtonPressed = Fishing.Utils.isCastButtonPressed
 function Fishing.Utils.isCastButtonPressed(joypad)
     if joypad == -1 then
-        return orig_isCastButtonPressed(self, joypad)
+        return orig_isCastButtonPressed(joypad)
     else
         return isJoypadRTPressed(joypad)
         -- return isJoypadPressed(joypad, getJoypadRightStickButton(joypad))
