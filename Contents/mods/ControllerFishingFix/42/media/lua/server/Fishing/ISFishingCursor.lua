@@ -7,3 +7,22 @@ function ISFishingCursor:isValid(square)
 
 	return Fishing.Utils.isValidCastLocation(self.character, square:getX(), square:getY())
 end
+
+function ISFishingCursor:getAPrompt()
+    if self.canBeBuild then
+        return getText("ContextMenu_FoodType_Fish")
+    end
+    return nil
+end
+
+function ISFishingCursor:getBPrompt()
+    return getText("UI_Cancel")
+end
+
+function ISFishingCursor:getLBPrompt()
+    return nil
+end
+
+function ISFishingCursor:getRBPrompt()
+    return nil
+end

@@ -10,5 +10,5 @@ description=Casting will also fail if the selected tile is out of range (approxi
 description=After casting use RT to reel in the line and LT to release the line.
 author=Kaydeth
 versionMin=42.8.1
-modversion=1.1.2
+modversion=1.1.3
 url=
