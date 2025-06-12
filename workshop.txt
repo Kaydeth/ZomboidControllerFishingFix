@@ -1,7 +1,7 @@
 version=1
 id=3495131142
 title=Controller Fishing Fix
-description=Build 42.8.1 is missing support for casting a fishing rod with a controller. This mod has a custom implementation for selecting a casting location with the controller and allowing you to use the trigger buttons to real in your catch.
+description=Build 42 is missing support for casting a fishing rod with a controller. This mod has a custom implementation for selecting a casting location with the controller and allowing you to use the trigger buttons to real in your catch.
 description=
 description=Controls:
 description=With a fishing rod equiped in both hands start casting by aiming at water with the right stick and pressing RT.
