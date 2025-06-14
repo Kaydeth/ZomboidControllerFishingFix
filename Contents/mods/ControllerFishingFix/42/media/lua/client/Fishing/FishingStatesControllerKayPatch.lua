@@ -28,6 +28,7 @@ function Fishing.States.PreCast:start()
         Fishing.Utils.clearAimingGridSquare(self.manager.joypad)
         self.cursor = ISFishingCursor:new(self.manager.player, self, self.onSquareSelected)
         self.cursor.isYButtonResetCursor = true;
+        self.cursor.skipWalk2 = true;
         local castGridSquare = Fishing.Utils.getLastCastSquare(self.manager.player, self.manager.joypad)
         if(castGridSquare ~= nil) then
             self.cursor.xJoypad = castGridSquare:getX()

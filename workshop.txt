@@ -1,4 +1,4 @@
-version=1
+version=1.1.4
 id=3495131142
 title=Controller Fishing Fix
 description=Build 42 is missing support for casting a fishing rod with a controller. This mod has a custom implementation for selecting a casting location with the controller and allowing you to use the trigger buttons to real in your catch.
@@ -9,6 +9,6 @@ description=Move the cursor with the DPAD and use the accept button to cast to t
 description=Casting will also fail if the selected tile is out of range (approximately 16 tiles).
 description=After casting use RT to reel in the line and LT to release the line.
 description=
-description=Latest Version: 1.1.3
+description=Latest Version: 1.1.4
 tags=Build 42;Food;QoL
 visibility=public
