@@ -1,4 +1,4 @@
-version=1.1.4
+version=1
 id=3495131142
 title=Controller Fishing Tweaks
 description=Build 42.10.0 introduced controller support for fishing but I'm not happy with it since it only lets you cast out to 6 tiles, compared to the 16 tiles for mouse, and I find the right stick controls for reeling very awkward.

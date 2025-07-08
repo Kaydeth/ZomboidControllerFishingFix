@@ -13,7 +13,6 @@ function FishingRod:isReel()
         -- is being used
     end
 
-    print ("LSDEBUG: isGamepadReel = ", self.isGamepadReel)
     return orig_isReel(self)
 end
 
