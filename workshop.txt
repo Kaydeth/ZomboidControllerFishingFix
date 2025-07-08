@@ -11,6 +11,6 @@ description=Move the cursor with the DPAD and use the accept button to cast to t
 description=Casting will also fail if the selected tile is out of range (approximately 16 tiles).
 description=After casting use RT to reel in the line and LT to release the line. You can also use the vanilla controls and reel in by rotating the right stick.
 description=
-description=Latest Version: 1.1.5
+description=Latest Version: 1.1.6
 tags=Build 42;Food;QoL
 visibility=public

@@ -11,5 +11,5 @@ description=Casting will also fail if the selected tile is out of range (approxi
 description=After casting use RT to reel in the line and LT to release the line. You can also use the vanilla controls and reel in by rotating the right stick.
 author=Kaydeth
 versionMin=42.10.0
-modversion=1.1.5
+modversion=1.1.6
 url=
