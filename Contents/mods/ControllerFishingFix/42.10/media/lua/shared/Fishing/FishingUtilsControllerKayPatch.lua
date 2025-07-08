@@ -123,13 +123,3 @@ function Fishing.Utils.isAccessibleAimDist(player, x,y)
     return distance < 16
     -- return IsoUtils.DistanceTo(player:getX(), player:getY(), x, y) < 16
 end
-
-local orig_isCastButtonPressed = Fishing.Utils.isCastButtonPressed
-function Fishing.Utils.isCastButtonPressed(joypad)
-    if joypad == -1 then
-        return orig_isCastButtonPressed(joypad)
-    else
-        return isJoypadRTPressed(joypad)
-        -- return isJoypadPressed(joypad, getJoypadRightStickButton(joypad))
-    end
-end

@@ -1,26 +1,32 @@
 require "Fishing/FishingRod"
 local FishingRod = Fishing.FishingRod
 
-local orig_new = FishingRod.new
-function FishingRod:new(player)
-    o = orig_new(self, player)
-    o.joypad = player:getJoypadBind()
-    return o
-end
-
 local orig_isReel = FishingRod.isReel
 function FishingRod:isReel()
+    --Allow reeling with the custom left trigger or the vanilla right stick movement
     if self.joypad ~= -1 then
-         return isJoypadRTPressed(self.joypad) and not isJoypadLTPressed(self.joypad)
+        local is_reel = isJoypadRTPressed(self.joypad) and not isJoypadLTPressed(self.joypad)
+        if is_reel then
+            return is_reel
+        end
+        -- If the trigger isn't reeling then fallback to vanilla and check if the right stick
+        -- is being used
     end
 
+    print ("LSDEBUG: isGamepadReel = ", self.isGamepadReel)
     return orig_isReel(self)
 end
 
 local orig_isReleaseLine = FishingRod.isReleaseLine
 function FishingRod:isReleaseLine()
+    --Allow releasing with the custom left trigger or the vanilla right stick movement
     if self.joypad ~= -1 then
-         return isJoypadLTPressed(self.joypad)
+         local is_release = isJoypadLTPressed(self.joypad)
+         if is_release then
+            return is_release
+         end
+        -- If the trigger isn't releasing then fallback to vanilla and check if the right stick
+        -- is being used
     end
 
     return orig_isReleaseLine(self)
