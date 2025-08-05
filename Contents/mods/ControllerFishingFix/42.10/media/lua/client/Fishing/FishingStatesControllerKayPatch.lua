@@ -57,6 +57,9 @@ function Fishing.States.PreCast:stop()
     self.cursor = nil
 end
 
+function Fishing.States.PreCast:destroy()
+end
+
 function Fishing.States.PreCast:onSquareSelected(square)
 	self.cursor = nil;
     Fishing.Utils.setAimingGridSquare(self.manager.joypad, square)
