@@ -12,5 +12,5 @@ description=After casting use RT to reel in the line and LT to release the line.
 description=<LINE> <LINE> Backwards compatibilty is supported for legacy_42_12 branch 
 author=Kaydeth
 versionMin=42.19.0
-modversion=1.1.9
+modversion=1.1.10
 url=

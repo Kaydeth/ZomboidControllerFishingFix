@@ -26,3 +26,13 @@ end
 function ISFishingCursor:getRBPrompt()
     return nil
 end
+
+function ISFishingCursor:onJoypadPressButton(joypadIndex, joypadData, button)
+    local game_ver = getCore():getGameAndBuildVersion();
+
+    if game_ver == "42.22.2" and button == Joypad.AButton then
+        self:create(self.xJoypad, self.yJoypad, self.zJoypad, self.north, self.sprite)
+    else
+        ISBuildingObject.onJoypadPressButton(self, joypadIndex, joypadData, button)
+    end
+end
